@@ -19,46 +19,46 @@ def save_extract_txt_by_package_date_pin_and_filename_in_json(df_input_data = No
         Multiple JSON files inside the output folder
     """
     
-    for int_row_index in range(df_input_data.shape[0]):
-        str_pin = df_input_data['pin'][int_row_index]
-        str_date = df_input_data['directory_name'][int_row_index].split('_')[5].split('-')[0]
-        str_date = str_date[0:4] + '-' + str_date[4:6] + '-' + str_date[6:8]
-        str_directory_name = df_input_data['directory_name'][int_row_index]
+    for int_row_index in range(df_input_data.shape[0]): # 
+        str_pin = df_input_data['pin'][int_row_index] # Get PIN
+        str_date = df_input_data['directory_name'][int_row_index].split('_')[5].split('-')[0] # Get date
+        str_date = str_date[0:4] + '-' + str_date[4:6] + '-' + str_date[6:8] # Format date
+        str_directory_name = df_input_data['directory_name'][int_row_index] # Get directory name
         
         str_sql_query = f""" select file_path from qa_report 
                             where directory_name = '{str_directory_name}'
-                        """
+                        """ # SQL query
         df_data = pe.get_data_from_sqllite_database(str_database_file_path = str_database_file_path,
-                                                str_sql_query = str_sql_query)
+                                                    str_sql_query = str_sql_query) # Get data from SQLLite database
     
-        df_extract_txt = pe.get_extract_txt_in_dataframe_format(str_extract_txt_file_path = str_extract_txt_file_path)
+        df_extract_txt = pe.get_extract_txt_in_dataframe_format(str_extract_txt_file_path = str_extract_txt_file_path) # Get extract txt in dataframe format
         
         df_extract_txt = pd.merge(df_extract_txt,
                                   df_data,
                                   how = 'left',
                                   left_on = 'File',
-                                  right_on = 'file_path')
+                                  right_on = 'file_path') # Merge extract txt and qa_report
         
-        df_extract_txt = df_extract_txt[df_extract_txt['file_path'].notna()]
+        df_extract_txt = df_extract_txt[df_extract_txt['file_path'].notna()] # Filter extract txt by file path not null
         
         
-        for str_wav_file_path in df_extract_txt['File'].unique():
+        for str_wav_file_path in df_extract_txt['File'].unique(): # Loop through each wav file path
             
-            df_output = df_extract_txt[df_extract_txt['File'] == str_wav_file_path]
-            df_output = df_output[['speaker_tag','text','start','end']]
-            list_json_output = json.loads(df_output.to_json(orient = 'records'))
+            df_output = df_extract_txt[df_extract_txt['File'] == str_wav_file_path] # Filter extract txt by wav file path
+            df_output = df_output[['speaker_tag','text','start','end']] # Select columns
+            list_json_output = json.loads(df_output.to_json(orient = 'records')) # Convert dataframe to JSON format
 
-            str_extract_data_filename = str_wav_file_path.replace('.wav','_tx.json')
-            str_extract_data_filename = str_extract_data_filename.replace('/audio-efs/','')
+            str_extract_data_filename = str_wav_file_path.replace('.wav','_tx.json') # Get extract data filename and format it to replace .wav with _tx.json
+            str_extract_data_filename = str_extract_data_filename.replace('/audio-efs/','') # Get extract data filename and format it to replace /audio-efs/ with nothing
             
-            str_output_folder_path = f'output/{str_date}/{str_pin}'
+            str_output_folder_path = f'output/{str_date}/{str_pin}' # Get output folder path
             
-            if not os.path.exists(str_output_folder_path):
-                os.makedirs(str_output_folder_path)
+            if not os.path.exists(str_output_folder_path): # If output folder path does not exist
+                os.makedirs(str_output_folder_path) # Create output folder path
             
-            str_output_file_path = f'{str_output_folder_path}/{str_extract_data_filename}'
-            with open(str_output_file_path, 'w') as obj_json_file:
-                json.dump(list_json_output, obj_json_file)
+            str_output_file_path = f'{str_output_folder_path}/{str_extract_data_filename}' # Get output file path
+            with open(str_output_file_path, 'w') as obj_json_file: # Open output file path
+                json.dump(list_json_output, obj_json_file) # Save JSON file
                 
 
     return None

@@ -10,7 +10,7 @@ def get_data_from_input_file_csv(str_input_data_csv_file_path = None):
         pandas dataframe
     """
     
-    df_data = pd.read_csv(str_input_data_csv_file_path)
+    df_data = pd.read_csv(str_input_data_csv_file_path) # Read data from CSV file
     
     return df_data
 

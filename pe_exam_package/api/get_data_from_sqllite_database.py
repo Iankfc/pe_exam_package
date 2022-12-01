@@ -13,8 +13,8 @@ def get_data_from_sqllite_database(str_database_file_path = None,
         Pandas Dataframe: data from SQLLite database in pandas dataframe format.
     """
     
-    obj_db_connection = sqlite3.connect(fr'{str_database_file_path}')
-    df_data = pd.read_sql(sql = str_sql_query, con = obj_db_connection)
+    obj_db_connection = sqlite3.connect(fr'{str_database_file_path}') # Connect to database
+    df_data = pd.read_sql(sql = str_sql_query, con = obj_db_connection) # Read data from database
     return df_data
 
 
