@@ -16,7 +16,6 @@ def save_meta_data_by_packagedate_pin_and_filename_in_json(df_input_data = None,
                                                                 str_database_file_path = str_database_file_path)
         
         for dict_json_meta_data in list_json_data:
-            print(dict_json_meta_data)
             str_meta_data_filename = dict_json_meta_data['audio_file_name'].replace('.wav','_meta.json')
             
             str_output_folder_path = f'output/{str_date}/{str_pin}'
