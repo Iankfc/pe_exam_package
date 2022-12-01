@@ -134,6 +134,8 @@ def get_extract_txt_in_dataframe_format(str_extract_txt_file_path = None):
 
     df_output['text'] = df_output['text'].str.replace('\n','')       
     df_output['text'] = df_output['text'].str.strip()
+    
+    df_output['File'] = df_output['File'].str.strip()
                                                     
     #%%
 
