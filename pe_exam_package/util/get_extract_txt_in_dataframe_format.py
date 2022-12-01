@@ -4,7 +4,12 @@ import numpy as np
 import json
 import warnings
 warnings.filterwarnings('ignore')
+import datetime
 
+def get_milliseconds_from_text_time(str_time = None):
+
+    h,m,s = str_time.split(':')
+    return int(float(datetime.timedelta(hours=int(h),minutes=int(m),seconds=float(s)).total_seconds())*1000)
 
 def get_extract_txt_in_dataframe_format(str_extract_txt_file_path = None):
     """ This function allows you extract the text file containing the conversation and outputs a formatted dataframe version of the text file.
@@ -145,7 +150,31 @@ def get_extract_txt_in_dataframe_format(str_extract_txt_file_path = None):
     df_output['text'] = df_output['text'].str.strip() # Strip the white space from the 'text' column
     
     df_output['File'] = df_output['File'].str.strip() # Strip the white space from the 'File' column
-                                                    
+         
+         
+    df_output['text2'] = df_output['text'].str.split(']')
+        
+    df_output = df_output.explode('text2')        
+    
+    df_output = df_output.reset_index()
+    df_output['AdditionalTimeStamp'] = np.nan
+    
+    for int_row_number in range(df_output.shape[0]):
+        try:
+            df_output['text'][int_row_number] = str(df_output['text2'][int_row_number]).split('[')[0]
+            df_output['AdditionalTimeStamp'][int_row_number] = str(df_output['text2'][int_row_number]).split('[')[1]
+        except IndexError:
+            df_output['text'][int_row_number] =  df_output['text'][int_row_number] 
+            df_output['AdditionalTimeStamp'][int_row_number] = np.nan
+                              
+    df_output['AdditionalTimeStamp']  = df_output['AdditionalTimeStamp'].astype(float)  * 1000            
+    df_output['text'] = df_output['text'].str.strip()
+    del df_output['text2']
+    
+    df_output = df_output[df_output['text'] != '']
+    
+    df_output['start2'] = df_output['start'].apply(lambda x: get_milliseconds_from_text_time(x))
+    df_output['end2'] = df_output['end'].apply(lambda x: get_milliseconds_from_text_time(x))
     #%%
 
     return df_output
