@@ -3,6 +3,18 @@ import pe_exam_package as pe
 def get_metadata_and_tx_data_in_json_format(str_input_data_csv_file_path = None,
                                             str_database_file_path = None,
                                             str_extract_txt_file_path = None):
+    """This function allows you to read data from a csv file and dowload the data in pandas dataframe format.
+
+    Args:
+        str_input_data_csv_file_path (str, required): File path of the CSV file containing the list of directory name needed to generate the output which contains the directory_name and pin. Defaults to None.
+        
+        str_database_file_path (str, required): File path of the SQLLite database containing the following information: <br> directory_name, corpus_code, file_path, audio_duration, email, user_id, gender, native_language. Defaults to None.
+        
+        str_extract_txt_file_path (str, required): File path containing the transcript of conversion and the timestamp. Defaults to None.
+        
+    Returns:
+        Multiple JSON files inside the output folder
+    """
     
     df_input_data = pe.get_data_from_input_file_csv(str_input_data_csv_file_path = str_input_data_csv_file_path)
     

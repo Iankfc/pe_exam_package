@@ -7,6 +7,17 @@ def save_extract_txt_by_package_date_pin_and_filename_in_json(df_input_data = No
                                                               str_directory_name = None,
                                                               str_database_file_path = None,
                                                               str_extract_txt_file_path = None):
+    """ This function allows you to save the extract txt by package date pin and filename in JSON format.
+
+    Args:
+        df_input_data (pandas dataframe, required): Directory name found in the 'input_file.csv'. Defaults to None.
+        str_directory_name (str, required): File path where the SQLLite database is saved. Defaults to None.
+        str_database_file_path (str, required): File path where the SQLLite database is saved. Defaults to None.
+        str_extract_txt_file_path (str, required): File path where the SQLLite database is saved. Defaults to None.
+
+    Returns:
+        Multiple JSON files inside the output folder
+    """
     
     for int_row_index in range(df_input_data.shape[0]):
         str_pin = df_input_data['pin'][int_row_index]
