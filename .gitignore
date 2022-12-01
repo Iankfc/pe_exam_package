@@ -1,6 +1,5 @@
 pe_exam_package/__pycache__/
 pe_exam_package.egg-info/
 .eggs/
-*.json
 *.pyc
  pe_exam_package/api/__pycache__/
