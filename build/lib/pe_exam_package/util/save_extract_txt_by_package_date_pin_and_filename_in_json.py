@@ -32,7 +32,7 @@ def save_extract_txt_by_package_date_pin_and_filename_in_json(df_input_data = No
                                                     str_sql_query = str_sql_query) # Get data from SQLLite database
     
         df_extract_txt = pe.get_extract_txt_in_dataframe_format(str_extract_txt_file_path = str_extract_txt_file_path) # Get extract txt in dataframe format
-        
+                     
         df_extract_txt = pd.merge(df_extract_txt,
                                   df_data,
                                   how = 'left',
@@ -64,6 +64,7 @@ def save_extract_txt_by_package_date_pin_and_filename_in_json(df_input_data = No
     return None
     
 if __name__ == '__main__':
+
     df_input_data = pe.get_data_from_input_file_csv(str_input_data_csv_file_path = r"pe_exam/input_file.csv")
     save_extract_txt_by_package_date_pin_and_filename_in_json(  df_input_data = df_input_data,
                                                                 str_database_file_path = 'pe_exam/qa_report.db',
