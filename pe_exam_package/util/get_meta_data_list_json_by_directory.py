@@ -5,6 +5,15 @@ import json
 
 def get_meta_data_list_json_by_directory(str_directory_name = None,
                                         str_database_file_path = None):
+     """ This function allows you to get the meta data list in JSON format by directory name found in 'input_file.csv'.
+
+     Args:
+          str_directory_name (str, required): Directory name found in the 'input_file.csv'. Defaults to None.
+          str_database_file_path (str, required): File path where the SQLLite database is saved. Defaults to None.
+
+     Returns:
+          Pandas dataframe
+     """
      
      str_sql_query = f""" select * from qa_report 
                          where directory_name = '{str_directory_name}'

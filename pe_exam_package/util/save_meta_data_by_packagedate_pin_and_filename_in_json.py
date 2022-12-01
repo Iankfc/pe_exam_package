@@ -5,6 +5,15 @@ import os
 
 def save_meta_data_by_packagedate_pin_and_filename_in_json(df_input_data = None,
                                                            str_database_file_path = None):
+    """ This function allows you to save the meta data by package date pin and filename in JSON format.
+
+    Args:
+        df_input_data (pandas dataframe, required): Directory name found in the 'input_file.csv'. Defaults to None.
+        str_database_file_path (str, required): File path where the SQLLite database is saved. Defaults to None.
+
+    Returns:
+        Multiple JSON files inside the output folder
+    """
         
     for int_row_index in range(df_input_data.shape[0]):
         str_pin = df_input_data['pin'][int_row_index]

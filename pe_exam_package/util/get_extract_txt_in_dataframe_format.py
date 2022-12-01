@@ -7,6 +7,14 @@ warnings.filterwarnings('ignore')
 
 
 def get_extract_txt_in_dataframe_format(str_extract_txt_file_path = None):
+    """ This function allows you extract the text file containing the conversation and outputs a formatted dataframe version of the text file.
+
+    Args:
+        str_extract_txt_file_path (str, required): File path of the extract.txt file. Defaults to None.
+
+    Returns:
+        Pandas dataframe
+    """
 
     with open(str_extract_txt_file_path,'r') as file:
         list_extract_data = file.readlines()

@@ -59,7 +59,7 @@ Name | Type | Description | Example
 ------ | ------ |------ |------ 
 **str_input_data_csv_file_path** | str | A CSV file containing the list of directory name needed to generate the output which contains the directory_name and pin | 'pe_exam/input_file.csv'
 **str_database_file_path** | str | A SQLLite database containing the following information: <br> directory_name, corpus_code, file_path, audio_duration, email, user_id, gender, native_language  | 'pe_exam/qa_report.db'
-**str_extract_txt_file_path** | str | A text file containing several utterances | 'pe_exam/extract.txt'
+**str_extract_txt_file_path** | str | File path containing the transcript of conversion and the timestamp | 'pe_exam/extract.txt'
 
 
 
