@@ -1,1 +1,10 @@
-{"audio_file_name": "Test_04803_MUL_MUL_0006_20220605-182021_0043_solo2-D-15.wav", "audio_duration": 17.08, "corpus_code": "solo2-D-15", "speaker_id": {"email": "xxx222xxx@hotmail.com", "gender": "FEMALE", "native_language": "English"}}
+{
+  "audio_file_name": "Test_04803_MUL_MUL_0006_20220605-182021_0043_solo2-D-15.wav",
+  "audio_duration": 17.08,
+  "corpus_code": "solo2-D-15",
+  "speaker_id": {
+    "email": "xxx222xxx@hotmail.com",
+    "gender": "FEMALE",
+    "native_language": "English"
+  }
+}

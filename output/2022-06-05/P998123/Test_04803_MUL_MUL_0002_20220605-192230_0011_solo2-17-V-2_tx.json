@@ -1,0 +1,26 @@
+[
+  {
+    "speaker_tag": "spk_1",
+    "text": "I will now describe the person .",
+    "start": 0,
+    "end": 4045
+  },
+  {
+    "speaker_tag": "spk_2",
+    "text": "by anyone else .",
+    "start": 4045,
+    "end": 13665
+  },
+  {
+    "speaker_tag": "spk_3",
+    "text": "she is wearing a white blouse .",
+    "start": 13665,
+    "end": 16560
+  },
+  {
+    "speaker_tag": "spk_1",
+    "text": "with what seemed to be a blue pattern skirt .  <hm> she was carrying a tan purse .",
+    "start": 16560,
+    "end": 24700
+  }
+]
