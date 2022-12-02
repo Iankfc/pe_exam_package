@@ -65,13 +65,6 @@ def get_extract_txt_in_dataframe_format(str_extract_txt_file_path = None):
 
     #%%
 
-    # df_data_explode['Continuation'] = np.where((~df_data_explode['TRANS'].str.contains('#spk')) & (~df_data_explode['TRANS'].str.contains('no-speech')),
-    #                                             df_data_explode['TRANS'],
-    #                                             pd.NA) # Create a new column called 'Continuation' and populate it with the value in column TRAN if the string does not contain '#spk' or 'no-speech'
-
-
-    #%%
-
     df_data_explode['Continuation'] = np.where(df_data_explode['TRANS'].str.contains('~'),
                                                df_data_explode['TRANS'],
                                                pd.NA)
@@ -92,27 +85,11 @@ def get_extract_txt_in_dataframe_format(str_extract_txt_file_path = None):
     
     #%%
 
-
-    # df_data_explode['TRANS'] = np.where(df_data_explode['TRANS'].str.contains("~"),
-    #                                     df_data_explode['TRANS'].str.replace ("~", '') + df_data_explode['Continuation'],
-    #                                     df_data_explode['TRANS']
-    #                                     ) # Replace '~' with '' and concatenate the 'Continuation' column IF the string contains '~'
-
-    #%%
-
     del df_data_explode['Continuation'] # Delete the 'Continuation' column
     
     #%%
     
     df_data_explode = df_data_explode[~df_data_explode['TRANS'].str.contains('~')]
-    
-    #%%
-
-    #df_data_explode = df_data_explode[df_data_explode['TRANS'].str.contains('<#')] # Remove rows where the column TRAN does not contain '<#'
-
-
-
-
 
     #%%
 

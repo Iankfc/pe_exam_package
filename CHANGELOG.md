@@ -1,4 +1,11 @@
-**v1.1.0 - Dec 02, 2022**
+
+**v1.0.2 - Dec 02, 2022**
+
+**Fix**
+
+    Refactor code. Remove uncessary codes and comments
+
+**v1.0.1 - Dec 02, 2022**
 
 **Fix**
 
