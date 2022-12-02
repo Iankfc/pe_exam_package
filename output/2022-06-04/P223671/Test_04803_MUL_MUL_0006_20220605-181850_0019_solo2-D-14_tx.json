@@ -1,0 +1,36 @@
+[
+  {
+    "speaker_tag": "spk_2",
+    "text": "<ah> you're s- you seem to be so busy with your office work . ? <um> are you aware ?",
+    "start": 1341,
+    "end": 7105
+  },
+  {
+    "speaker_tag": "spk_2",
+    "text": "<interjection>oh</interjection> what a standing on social networks these days .",
+    "start": 7105,
+    "end": 11130
+  },
+  {
+    "speaker_tag": "spk_1",
+    "text": "no I am not busy with office work I am just <unk> <unk> on LinkedIn . I am just looking for some .",
+    "start": 11130,
+    "end": 16983
+  },
+  { "speaker_tag": "spk_1", "text": "<noise>", "start": 16983, "end": 17488 },
+  { "speaker_tag": "spk_3", "text": "new .", "start": 17488, "end": 18395 },
+  {
+    "speaker_tag": "spk_3",
+    "text": "job openings .",
+    "start": 18395,
+    "end": 19707
+  },
+  { "speaker_tag": "spk_3", "text": "<noise>", "start": 19707, "end": 20379 },
+  {
+    "speaker_tag": "spk_2",
+    "text": "<interjection>ohh</interjection> .",
+    "start": 20379,
+    "end": 21386
+  },
+  { "speaker_tag": "spk_3", "text": "yeah .", "start": 21386, "end": 22095 }
+]

@@ -1,0 +1,33 @@
+[
+  {
+    "speaker_tag": "spk_2",
+    "text": "hello, how are you",
+    "start": 45,
+    "end": 5045
+  },
+  {
+    "speaker_tag": "spk_3",
+    "text": "<um> not good.",
+    "start": 5045,
+    "end": 6446
+  },
+  { "speaker_tag": "", "text": "<#no-speech>", "start": 6446, "end": 8678 },
+  {
+    "speaker_tag": "spk_2",
+    "text": "what happened? I see  you get injured.",
+    "start": 8678,
+    "end": 11553
+  },
+  {
+    "speaker_tag": "spk_3",
+    "text": "I was hit by a truck fifteen days ago .",
+    "start": 11553,
+    "end": 14219
+  },
+  {
+    "speaker_tag": "spk_2",
+    "text": "oh, it's really terrible. I hope you'll get well soon",
+    "start": 14219,
+    "end": 19575
+  }
+]
